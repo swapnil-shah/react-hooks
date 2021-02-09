@@ -40,8 +40,11 @@ Hooks dont work inside classes
   
 
 ## useState
+- This hook lets you add state to functional components. By calling you state inside a functional component you are creating a single
+piece of state.
+- In classes the state is always an object you can store properties on that object. With the use state hook the state doesn't have to be an object it can be an array a number, boolean, string etc
+- The you state hook returns an array with two elements  - the first element is the current value of the state and the second element is a state setter function you call the setter function with a new value to set the state which will in turn cause the component to rerende
+- In case your new state value depends on the previous state value you can pass a function to the setter function the setter function will receive the previous state as its argument.
 - This hook accepts an argument which initial value of state property and returns current value of state property and a method which is capable to update the current value of state property
+- When dealing with objects or arrays always make sure to spread your state variable and then call the setter function to get the expected behavior
 - Default value is never used in re-renders
-- When you have to update state based on the previous state state, pass in the prev state value to state setter
-- A state variable can be a string, number, boolean, object or array
-- useState does not autuomatically merge the state like class. Have to do it manually. that's why spread
