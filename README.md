@@ -34,4 +34,13 @@ Hooks dont work inside classes
 - Can't use hooks inside a class component but your app can definitely mix classes and functional components
 - Hooks don't replace your existing knowledge of react concepts instead hooks provide a more direct API to the react concepts you already know such as props state context refs and life cycle
 
+### Rules of Hooks
+
+- **Only called hooks at the top level**. Don't call hooks inside loops conditions or nested functions
+- **Only call hooks from react functions**. Call them within react functional components and not just any regular JavaScript function
+  
+
 ## useState
+This hook accepts an argument which initial value of state property and returns current value of state property and a method which is capable to update the current value of state property
+
+Default value is never used in re-renders
