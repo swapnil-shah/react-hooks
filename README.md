@@ -44,3 +44,5 @@ Hooks dont work inside classes
 This hook accepts an argument which initial value of state property and returns current value of state property and a method which is capable to update the current value of state property
 
 Default value is never used in re-renders
+
+When you have to update state based on the previous state state, pass in the prev state value to state setter
