@@ -1,5 +1,4 @@
 # React Hooks
-~`
 ## Hooks Introduction
 
 ### What are Hooks
@@ -28,8 +27,8 @@ Hooks dont work inside classes
 
 ### Noteworthy Points
 
-- hooks are completely opt-in you don't have to learn or use hooks if you don't want to
-- hooks don't contain any breaking changes and the release is 100% backwards compatible
+- Hooks are completely opt-in you don't have to learn or use hooks if you don't want to
+- Hooks don't contain any breaking changes and the release is 100% backwards compatible
 - Classes won't be removed from React
 - Can't use hooks inside a class component but your app can definitely mix classes and functional components
 - Hooks don't replace your existing knowledge of react concepts instead hooks provide a more direct API to the react concepts you already know such as props state context refs and life cycle
@@ -41,8 +40,8 @@ Hooks dont work inside classes
   
 
 ## useState
-This hook accepts an argument which initial value of state property and returns current value of state property and a method which is capable to update the current value of state property
-
-Default value is never used in re-renders
-
-When you have to update state based on the previous state state, pass in the prev state value to state setter
+- This hook accepts an argument which initial value of state property and returns current value of state property and a method which is capable to update the current value of state property
+- Default value is never used in re-renders
+- When you have to update state based on the previous state state, pass in the prev state value to state setter
+- A state variable can be a string, number, boolean, object or array
+- useState does not autuomatically merge the state like class. Have to do it manually. that's why spread
