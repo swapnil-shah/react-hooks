@@ -48,3 +48,7 @@ piece of state.
 - This hook accepts an argument which initial value of state property and returns current value of state property and a method which is capable to update the current value of state property
 - When dealing with objects or arrays always make sure to spread your state variable and then call the setter function to get the expected behavior
 - Default value is never used in re-renders
+
+## useEffect
+-  useEffect hook lets you perform **side effects** in **functional components**
+-  It is a close replacement for **componentDidMount() componentDidUpdate()** and **componentWillUnmount()** that's right three lifecycle methods can be handled by the use effect hook
