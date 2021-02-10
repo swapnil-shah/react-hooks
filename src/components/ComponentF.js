@@ -3,6 +3,7 @@ import { UserContext, AgeContext } from '../App'
 function ComponentF() {
   return (
     <div>
+      <h2>Component F wihout useContext</h2>
       <UserContext.Consumer>
         {
           user => {
