@@ -2,6 +2,7 @@ import HookCounter from './components/HookCounter'
 import HookCounterTwo from './components/HookCounterTwo'
 import HookCounterThree from './components/HookCounterThree'
 import HookMouse from './components/HookMouse'
+import MouseContainer from './components/MouseContainer'
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <h1>Learn React Hooks</h1>
         {/* <HookCounter /> */}
         {/* <HookCounterThree /> */}
-        <HookMouse />
+        <MouseContainer />
       </header>
     </div>
   );
