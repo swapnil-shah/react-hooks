@@ -4,6 +4,7 @@ import HookCounterThree from './components/HookCounterThree'
 import HookMouse from './components/HookMouse'
 import MouseContainer from './components/MouseContainer'
 import IntervalHookCounter from './components/IntervalHookCounter'
+import DataFetching from './components/DataFetching'
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <h1>Learn React Hooks</h1>
         {/* <HookCounter /> */}
         {/* <HookCounterThree /> */}
-        <IntervalHookCounter />
+        {/* <IntervalHookCounter /> */}
+        <DataFetching />
       </header>
     </div>
   );
