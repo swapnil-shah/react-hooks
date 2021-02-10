@@ -6,13 +6,12 @@ function IntervalHookCounter() {
   const tick = () => {
     setCount(prevCount => prevCount + 1)
   }
-  // sometimes you might want to call a function with a useEffect so function do something 
-  // whenever you need to call a function with in useEffect just go ahead and define the function with the useEffect
+  // sometimes you might want to call a function with a useEffect so function do something. Whenever you need to call a function within useEffect just go ahead and define the function within the useEffect
   // function doSomething() {
   //   console.log("Do something")
   // }
 
-  // if you think dependency array is a way to specify when you want to rerun the effect they're going to run into problems instead dependency array should be thought of as a way to let react know about everything that the effect must watch
+  // If you think dependency array is a way to specify when you want to rerun the effect they're going to run into problems, instead dependency array should be thought of as a way to let react know about everything that the effect must watch
 
   useEffect(() => {
     function doSomething() {

@@ -16,7 +16,7 @@ function HookMouse() {
     console.log('useeffect called')
     window.addEventListener('mousemove', logMousePosition)
     // Try below code commenting out and check console
-    // On button click the coponent is hidden but when you move the mouse it will still log the coordinates. The event associated with that component is not waitForElementToBeRemoved. So for that we use return to cleanup just like in componentWillUnmount( phase)
+    // On button click the component is hidden but when you move the mouse it will still log the coordinates. The event associated with that component is not waitForElementToBeRemoved. So for that we use return to cleanup just like in componentWillUnmount( phase)
     return () => {
       console.log("component unmounting code")
       window.removeEventListener('mousemove', logMousePosition)

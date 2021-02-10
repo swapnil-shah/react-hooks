@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 // Hooks are just function, so we simply call them
 // useState()
-// This hook accepts an argument which initial value of state property and retuens current value of state property and a method which is capable to update the current value of state property
+// This hook accepts an argument which initial value of state property and returns current value of state property and a method which is capable to update the current value of state property
 //When you have to update state based on the previous state state, pass in the prev state value to state setter
 
 export default function Counter() {

@@ -42,7 +42,7 @@ Hooks dont work inside classes
 ## useState
 - This hook lets you add state to functional components. By calling you state inside a functional component you are creating a single
 piece of state.
-- In classes the state is always an object you can store properties on that object. With the use state hook the state doesn't have to be an object it can be an array a number, boolean, string etc
+- In classes the state is always an object you can store properties on that object. With the useState hook the state doesn't have to be an object it can be an array a number, boolean, string etc
 - The you state hook returns an array with two elements  - the first element is the current value of the state and the second element is a state setter function you call the setter function with a new value to set the state which will in turn cause the component to rerende
 - In case your new state value depends on the previous state value you can pass a function to the setter function the setter function will receive the previous state as its argument.
 - This hook accepts an argument which initial value of state property and returns current value of state property and a method which is capable to update the current value of state property
@@ -51,4 +51,36 @@ piece of state.
 
 ## useEffect
 -  useEffect hook lets you perform **side effects** in **functional components**
--  It is a close replacement for **componentDidMount() componentDidUpdate()** and **componentWillUnmount()** that's right three lifecycle methods can be handled by the use effect hook
+-  It is a close replacement for **componentDidMount() componentDidUpdate()** and **componentWillUnmount()** that's right three lifecycle methods can be handled by the useEffect hook
+-  useEffect is called at every render unless you specify a dependency array. To call once in intial render, pass an empty array as 2nd parameter.
+-  When you want to execute some component cleanup code you include it in a function and return that function from the function passed to useEffec. The cleanup code can be canceling subscriptions timers or even removing event handlers
+- Dependency array should be thought of as a way to let react know about everything that the effect must watch
+- Sometimes you might want to call a function with a useEffect so function do something. Whenever you need to call a function within useEffect just go ahead and define the function within the useEffect. See below example
+```
+useEffect(() => {
+  function doSomething() {
+    console.log(someProp)
+  }
+  doSomething()
+  const interval = setInterval(tick, 1000)
+  return () => {
+    clearInterval(interval)
+  }
+}, [someProp])
+```
+
+## useContext
+
+### What is Context API
+Context comes into picture context provides a way to pass data through the component tree without having to pass props down manually at every level
+
+### How does it work?
+[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbkEodXNlcm5hbWUpXG5CKEFwcCBDb21wb25lbnQpOjo6YWN0aXZlXG5CIC0tPnx1c2VybmFtZXwgQ1tBXTo6OmluYWN0aXZlXG5CIC0tPnx1c2VybmFtZXwgRFtCXTo6OmluYWN0aXZlXG5CIC0tPnx1c2VybmFtZXwgRVtDXTo6OmFjdGl2ZVxuRCAtLT58dXNlcm5hbWV8IEdbRF06OjppbmFjdGl2ZVxuRSAtLT58dXNlcm5hbWV8IEhbRV06OjphY3RpdmVcbkggLS0-fHVzZXJuYW1lfCBJW0ZdOjo6YWN0aXZlXG5cbmNsYXNzRGVmIGFjdGl2ZSBmaWxsOiM3ZjQ0YWYsIGNvbG9yOiNmZmZmZmY7XG5jbGFzc0RlZiBpbmFjdGl2ZSBmaWxsOiM5OUM5NTUsIGNvbG9yOiNmZmZmZmYsIHN0cm9rZTojNkFBRjdEO1xuc3R5bGUgQSBmaWxsOiMwMkFCRkEsY29sb3I6I2ZmZmZmZiwgc3Ryb2tlOiMwMkFCRkE7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)](https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcbkEodXNlcm5hbWUpXG5CKEFwcCBDb21wb25lbnQpOjo6YWN0aXZlXG5CIC0tPnx1c2VybmFtZXwgQ1tBXTo6OmluYWN0aXZlXG5CIC0tPnx1c2VybmFtZXwgRFtCXTo6OmluYWN0aXZlXG5CIC0tPnx1c2VybmFtZXwgRVtDXTo6OmFjdGl2ZVxuRCAtLT58dXNlcm5hbWV8IEdbRF06OjppbmFjdGl2ZVxuRSAtLT58dXNlcm5hbWV8IEhbRV06OjphY3RpdmVcbkggLS0-fHVzZXJuYW1lfCBJW0ZdOjo6YWN0aXZlXG5cbmNsYXNzRGVmIGFjdGl2ZSBmaWxsOiM3ZjQ0YWYsIGNvbG9yOiNmZmZmZmY7XG5jbGFzc0RlZiBpbmFjdGl2ZSBmaWxsOiM5OUM5NTUsIGNvbG9yOiNmZmZmZmYsIHN0cm9rZTojNkFBRjdEO1xuc3R5bGUgQSBmaWxsOiMwMkFCRkEsY29sb3I6I2ZmZmZmZiwgc3Ryb2tlOiMwMkFCRkE7IiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0)
+
+#### Three Steps to create the context
+- Create the context
+- We need to provide this context with a value and the provider must wrap the children components for the value to be available
+- Consume the context value
+
+
+#### Rules
