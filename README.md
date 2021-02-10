@@ -91,3 +91,60 @@ With useContext
   - import necessary context
   - call the useContext function by passing in the context as argument
 
+
+## useReducer
+
+### What is useReducer?
+It is a hook that is used for state management. It is an alternative to useState. This hook is based on Javascript reduce.
+### Difference with useState?
+useState is built using useReducer
+
+### Javascript Reduce
+The **reduce()** method executes a **reducer** function (that you provide) on each element of the array, resulting in single output value.
+
+The reduce method takes two parameters the first parameter is the reducer function and the second parameter is an initial value that the reducer function can make use of. The reducer function itself again accepts two parameters and reduces them down to a single value and then returns that value.
+
+In below example the reducer takes two values and returns one value which is the summation.
+
+```
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15
+```
+
+### Javascript Reduce vs React useReducer
+There is a huge similarity between these 2
+| Javascript Reduce                           | React useReducer                                           |
+| ------------------------------------------- | ---------------------------------------------------------- |
+| array.reduce(reducer, initialValue          | useReducer(reducer, initialState                           |
+| singleValue=reducer(accumulator, itemValue) | newState = reducer(currentState, action                    |
+| reduce method returns a single value        | useReducer returns a pair of values - [newState, dispatch] |
+
+### How to use it?
+#### Step 1
+Import useReducer from React
+
+#### Step 2
+- Just like the other hooks userReducer is also a function we simply have to call it in our functional component
+- useReducer accepts two arguments
+  - reducer function
+  - initial state
+- Define **reducer function** outside the functionl component
+  - A reducer function accepts 2 values and returns 1 value(new state)
+  - The 2 values accepted are current state and action. 
+  - A reducer function accepts the current state and returns the new state
+  - For this transition to happen, we will need something. That something is action paramater. 
+  - Think of action as an instruction to the reducer function based on what the action specifies the reducer function performs the necessary state transition
+- The convention to execute code based on the action is to use switch statement
+
+#### Step 3
+We need to get hold of a value to display in the JSX and we also need a way to call the reducer function with the appropriate action.
+Similarly to useState, userReducer also returns a pair of values which we can get hold off using the array destructuring.
+
