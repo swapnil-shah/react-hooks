@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import ComponentF from './ComponentF'
 import { UserContext, AgeContext } from '../App'
 
 function ComponentE() {
