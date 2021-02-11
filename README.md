@@ -119,6 +119,8 @@ console.log(array1.reduce(reducer, 5));
 // expected output: 15
 ```
 
+Combine useReducer and useContext when state needs to be shared between components i.e. Global state **managment** 
+
 ### Javascript Reduce vs React useReducer
 There is a huge similarity between these 2
 | Javascript Reduce                           | React useReducer                                           |
@@ -148,3 +150,6 @@ Import useReducer from React
 We need to get hold of a value to display in the JSX and we also need a way to call the reducer function with the appropriate action.
 Similarly to useState, userReducer also returns a pair of values which we can get hold off using the array destructuring.
 
+> When dealing with multiple state variables that have the same state transitions it is a good idea to have multiple views reducers making use of the same reducer function this will avoid the complexity of merging the state if it were to be an object and also prevents us from duplicating code in the reducer function 
+
+### useReducer with useContext
