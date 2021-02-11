@@ -1,37 +1,16 @@
-// Our goal is to maintain account state in App.js and modify that state from components A D and F
+// As soon as the component mounts make an API call to fetch data. 
+// While the data is being fetched, show a loading indicator  
+// When the data is fetched successfully, hide the loading indicator and display the data 
+// If there was an error fetching the data we hide the loading indicator and display an error message
 
 import React, { useReducer } from 'react'
-import ComponentA from './components/useReducer/ComponentA'
-import ComponentB from './components/useReducer/ComponentB'
-import ComponentC from './components/useReducer/ComponentC'
-
-export const CountContext = React.createContext()
-
-const initialState = 0
-const reducer = (currentState, action) => {
-  switch (action) {
-    case 'increment':
-      return currentState + 1
-    case 'decrement':
-      return currentState - 1
-    case 'reset':
-      return initialState
-    default:
-      return currentState
-  }
-}
+import DataFetchingOne from './components/useReducer/DataFetchingOne'
 
 function App() {
-  const [count, dispatch] = useReducer(reducer, initialState)
   return (
-    <CountContext.Provider value={{ countState: count, countDispatch: dispatch }}>
-      <div className="App">
-        <h1>Count: {count}</h1>
-        <ComponentA />
-        <ComponentB />
-        <ComponentC />
-      </div >
-    </CountContext.Provider>
+    <div className="App">
+      <DataFetchingOne />
+    </div >
   );
 }
 
