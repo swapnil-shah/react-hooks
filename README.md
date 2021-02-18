@@ -175,3 +175,6 @@ It is useful when passing callbacks to optimized child components that rely on r
 
 #### Why not use the callback hook every single time?
 - Please visit [Kent Dodd's blog post](https://kentcdodds.com/blog/usememo-and-usecallback/) to understand why using callback all the time is not a good idea.
+
+##  `useMemo`
+useMemo is a hook that will only recompute the cached value when one of the dependencies has change. This optimisation heads to avoid expensive calculations on every render.

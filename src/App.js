@@ -4,13 +4,13 @@
 // If there was an error fetching the data we hide the loading indicator and display an error message
 
 import React, { useReducer } from 'react'
-import ParentComponent from './components/useCallback/ParentComponent'
+import Counter from './components/useMemo/Counter'
 
 function App() {
   return (
     <div className="App">
-      <ParentComponent />
-    </div >
+      <Counter />
+    </div>
   );
 }
 
