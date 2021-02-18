@@ -148,9 +148,9 @@ Import `useReducer` from React
 We need to get hold of a value to display in the JSX and we also need a way to call the reducer function with the appropriate action.
 Similarly to `useState`, userReducer also returns a pair of values which we can get hold off using the array destructuring.
 
-> When dealing with multiple state variables that have the same state transitions it is a good idea to have multiple views reducers making use of the same reducer function this will avoid the complexity of merging the state if it were to be an object and also prevents us from duplicating code in the reducer function 
+> When dealing with multiple state variables that have the same state transitions, it is a good idea to have multiple useReducers making use of the same reducer function this will avoid the complexity of merging the state. If it were to be an object and also prevents us from duplicating code in the reducer function.
 
-###  `useState` vs `useReducer`
+##  `useState` vs `useReducer`
 If both you `useState` and `useReducer` are meant for state management when should we use one over the other?
 | Scenario                         | `useState`                | `useReducer`           |
 | -------------------------------- | ------------------------- | ---------------------- |
@@ -159,3 +159,19 @@ If both you `useState` and `useReducer` are meant for state management when shou
 | **Related to state transitions** | No                        | Yes                    |
 | **Business logic**               | No business logic         | Complex business logic |
 | **Local vs global**              | Local                     | Global                 |
+
+
+##  `useCallback`
+#### What?
+`useCallback` is a hook that will return a memoized version of the callback function that only changes if one of the dependencies has changed
+> **React.memo** is a higher-order component that will prevent a functional component from being rear-ended if it's props or state do not change please keep in mind react dot memo has nothing to do with hooks
+
+#### Why?
+It is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders
+
+#### How?
+- Import `useCallback` from React
+- We need to call useCallback which accepts a callback function as its first parameter and then array of dependencies as its second parameter
+
+#### Why not use the callback hook every single time?
+- Please visit [Kent Dodd's blog post](https://kentcdodds.com/blog/usememo-and-usecallback/) to understand why using callback all the time is not a good idea.

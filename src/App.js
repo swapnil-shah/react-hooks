@@ -4,13 +4,12 @@
 // If there was an error fetching the data we hide the loading indicator and display an error message
 
 import React, { useReducer } from 'react'
-import DataFetchingOne from './components/useReducer/DataFetchingOne'
-import DataFetchingTwo from './components/useReducer/DataFetchingTwo'
+import ParentComponent from './components/useCallback/ParentComponent'
 
 function App() {
   return (
     <div className="App">
-      <DataFetchingTwo />
+      <ParentComponent />
     </div >
   );
 }
