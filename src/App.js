@@ -4,12 +4,12 @@
 // If there was an error fetching the data we hide the loading indicator and display an error message
 
 import React, { useReducer } from 'react'
-import Counter from './components/useMemo/Counter'
+import Timer from './components/useRef/Timer'
 
 function App() {
   return (
     <div className="App">
-      <Counter />
+      <Timer />
     </div>
   );
 }

@@ -132,7 +132,7 @@ There is a huge similarity between these 2
 Import `useReducer` from React
 
 #### Step 2
-- Just like the other hooks userReducer is also a function we simply have to call it in our functional component
+- Just like the other hooks userReducer is also a function we simply have to call it in the functional component
 - `useReducer` accepts two arguments
   - reducer function
   - initial state
@@ -178,3 +178,64 @@ It is useful when passing callbacks to optimized child components that rely on r
 
 ##  `useMemo`
 useMemo is a hook that will only recompute the cached value when one of the dependencies has change. This optimisation heads to avoid expensive calculations on every render.
+
+###  `useCallback` vs `useMemo`
+useCallback caches the provided function instance itself whereas useMemo invokes the provided function and caches its result. So if you need to cache a function use useCallback and when you need to cache the result of an invoked function use useMemo.
+
+## `useRef`
+
+`useRef` hook is used imperatively access DOM nodes in react functional components.
+
+Although useRef can hold a reference to a DOM node using the ref attribute, it can also be used to store any mutable value and what is great about useRef is that the value will persist through the rerenders while also not causing any additional renders when its value changes.
+
+### How to use?
+
+#### Step 1
+import useRef from React 
+```
+import React, { useEffect, useRef } from 'react'
+function FocusInput() {
+  ...
+}
+export default FocusInput
+```
+#### Step 2
+Create a ref variable by calling useRef and passing in the initial value
+```
+import React, { useEffect, useRef } from 'react'
+function FocusInput() {
+  const inputRef = useRef(null)
+  ...
+}
+```
+#### Step 3
+Once we create the ref we need to attach it to the *input* element and to attach a ref we make use of the reserved ref attribute. So on the *input* element ref is equal to *input* ref that is the name of reference variable.
+```
+function FocusInput() {
+  const inputRef = useRef(null)
+  useEffect(...)
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+    </div>
+  )
+}
+```
+#### Step 4
+Call the method on the input element
+> Where did this ***current*** property come from?
+> 
+> That is just something react does. React will set the refs current property to the corresponding DOM node. Hence this is how you actually access the input element.
+```
+function FocusInput() {
+  const inputRef = useRef(null)
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
+  return (
+    <div>
+      <input type="text" ref={inputRef} />
+    </div>
+  )
+}
+```
