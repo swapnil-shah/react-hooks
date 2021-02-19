@@ -1,12 +1,10 @@
-import React, { useReducer } from 'react'
-import DocTitleOne from './components/CustomHook/DocTitleOne'
-import DocTitleTwo from './components/CustomHook/DocTitleTwo'
+import React from 'react'
+import UserForm from './components/CustomHook/Form/UserForm'
 
 function App() {
   return (
     <div className="App">
-      <DocTitleOne />
-      <DocTitleTwo />
+      <UserForm />
     </div>
   );
 }
