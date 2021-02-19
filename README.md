@@ -239,3 +239,63 @@ function FocusInput() {
   )
 }
 ```
+
+## `Custom Hook`
+
+Tasks
+- Keep track of account value
+- After every render update the document title to the current count value
+  
+`<DocTitleOne />`
+
+```
+function DocTitleOne() {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    document.title = `Count ${count}`
+  }, [count])
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Counter {count}</button>
+    </div>
+  )
+}
+export default DocTitleOne
+```
+
+`<DocTitleTwo />`
+
+```
+function DocTitleTwo() {
+  ...
+}
+export default DocTitleTwo
+```
+We are repeating the same logic in both the components <DocTitleOne /> <DocTitleTwo />
+Imagine if we want to have ten different components that update the document title. We definitely don't want to be repeating the code. This is where a custom hook makes perfect sense.
+
+In our above example(<DocTitleOne /> <DocTitleTwo />) we can create a custom hook that extracts the logic of updating the document title. We can then reuse the same custom hook in different components.
+
+We can create a custom hook that extracts the logic of updating the document title. We can then reuse the same custom hook in different components.
+
+Custom hook should start with the word ***use*** it is a convention and also your linters rely on this word to determine whether rules of hooks apply to the function or not.
+
+`<useDocumentTitle />`
+```
+  import React, { useEffect } from 'react'
+  function useDocumentTitle(count) {
+    useEffect(() => {
+      document.title = `Count ${count}`
+    }, [count])
+  }
+  export default useDocumentTitle
+```
+Now replace `useEffect` with `useDocumentTitle`
+```
+import useDocumentTitle from './useDocumentTitle'
+function DocTitleOne() {
+  ...
+  useDocumentTitle(count)
+  ...
+}
+```
